@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+  
+  <property>
+    <name>fs.defaultFS</name>
+    <value>hdfs://nnobjaof.mars.grid.sina.com.cn:9000</value>
+  </property>
+  
+  <property>
+    <name>fs.trash.interval</name>
+    <value>1440</value>
+    <final>true</final>
+  </property>
+  
+  <property>
+    <name>hadoop.tmp.dir</name>
+    <value>/data1/hadoop/tmp</value>
+    <final>true</final>
+  </property>
+  
+  <property>
+    <name>io.compression.codecs</name>
+    <value>org.apache.hadoop.io.compress.DefaultCodec,org.apache.hadoop.io.compress.GzipCodec,org.apache.hadoop.io.compress.BZip2Codec,org.apache.hadoop.io.compress.DeflateCodec,org.apache.hadoop.io.compress.SnappyCodec,com.hadoop.compression.lzo.LzoCodec,com.hadoop.compression.lzo.LzopCodec</value>
+    <final>true</final>
+  </property>
+    <!-- Default for hdfs acl
+  <property>
+    <name>hadoop.security.authentication</name>
+    <value>simple</value>
+  </property>
+
+  <property>
+    <name>fs.permissions.umask-mode</name>
+    <value>022</value>
+  </property>
+  -->
+  <property>
+    <name>hadoop.security.group.mapping</name>
+	<!--<value>org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback</value>-->
+	<value>org.apache.hadoop.security.ShellBasedUnixGroupsMapping</value>
+  </property>
+</configuration>

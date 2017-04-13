@@ -1,0 +1,289 @@
+<?xml version="1.0"?>
+
+<configuration>
+<!-- Site specific YARN configuration properties -->
+  <property>
+    <name>yarn.resourcemanager.ha.enabled</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.ha.rm-ids</name>
+    <value>rm1,rm2</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.hostname.rm1</name>
+    <value>nnobjaof.mars.grid.sina.com.cn</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.hostname.rm2</name>
+    <value>h112098.mars.grid.sina.com.cn</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.recovery.enabled</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.store.class</name>
+    <value>org.apache.hadoop.yarn.server.resourcemanager.recovery.ZKRMStateStore</value>
+  </property> 
+
+  <property>
+    <name>yarn.resourcemanager.zk-address</name>
+    <value>zk1.mars.grid.sina.com.cn,zk2.mars.grid.sina.com.cn,zk3.mars.grid.sina.com.cn,zk4.mars.grid.sina.com.cn,zk5.mars.grid.sina.com.cn</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.cluster-id</name>
+    <value>yarn-ha/ficus-mars</value>
+  </property>
+  
+  <property>
+    <name>yarn.resourcemanager.zk-state-store.parent-path</name>
+    <value>/rmstore/ficus-mars</value>
+  </property>
+  
+  <property>
+    <name>yarn.resourcemanager.address.rm1</name>
+    <value>nnobjaof.mars.grid.sina.com.cn:8032</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.scheduler.address.rm1</name>
+    <value>nnobjaof.mars.grid.sina.com.cn:8030</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.resource-tracker.address.rm1</name>
+    <value>nnobjaof.mars.grid.sina.com.cn:8031</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.admin.address.rm1</name>
+    <value>nnobjaof.mars.grid.sina.com.cn:8033</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.webapp.address.rm1</name>
+    <value>nnobjaof.mars.grid.sina.com.cn:8088</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.address.rm2</name>
+    <value>h112098.mars.grid.sina.com.cn:8032</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.scheduler.address.rm2</name>
+    <value>h112098.mars.grid.sina.com.cn:8030</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.resource-tracker.address.rm2</name>
+    <value>h112098.mars.grid.sina.com.cn:8031</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.admin.address.rm2</name>
+    <value>h112098.mars.grid.sina.com.cn:8033</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.webapp.address.rm2</name>
+    <value>h112098.mars.grid.sina.com.cn:8088</value>
+  </property>
+  
+  <property>
+    <name>yarn.nodemanager.address</name>
+    <value>0.0.0.0:9042</value>
+    <final>true</final>
+  </property>
+  
+  <property>
+    <name>yarn.nodemanager.webapp.address</name>
+    <value>0.0.0.0:9044</value>
+    <final>true</final>
+  </property>
+  
+  <property>
+    <name>yarn.nodemanager.localizer.address</name>
+    <value>0.0.0.0:9040</value>
+    <final>true</final>
+  </property>
+  
+  <property>
+    <name>yarn.nodemanager.resource.memory-mb</name>
+    <value>8192</value>
+    <final>true</final>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.resource.cpu-vcores</name>
+    <value>40</value>
+    <final>true</final>
+  </property>
+ 
+  <property>
+    <name>yarn.nodemanager.aux-services</name>
+    <value>mapreduce_shuffle</value>
+    <final>true</final>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.aux-services.mapreduce_shuffle.class</name>
+    <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+    <final>true</final>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.local-dirs</name>
+    <value>/data1/hadoop/local,/data2/hadoop/local,/data3/hadoop/local,/data4/hadoop/local,/data5/hadoop/local,/data6/hadoop/local,/data7/hadoop/local,/data8/hadoop/local,/data9/hadoop/local,/data10/hadoop/local,/data11/hadoop/local</value>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.log-dirs</name>
+    <value>/data1/hadoop/logs/yarn,/data2/hadoop/logs/yarn,/data3/hadoop/logs/yarn,/data4/hadoop/logs/yarn,/data5/hadoop/logs/yarn,/data6/hadoop/logs/yarn,/data7/hadoop/logs/yarn,/data8/hadoop/logs/yarn,/data9/hadoop/logs/yarn,/data10/hadoop/logs/yarn,/data11/hadoop/logs/yarn</value>
+  </property>
+ 
+  <property>
+    <name>yarn.log-aggregation-enable</name>
+    <value>true</value>
+    <final>true</final>
+  </property>
+
+  <property>
+    <name>yarn.log-aggregation.retain-seconds</name>
+    <value>604800</value>
+  </property>
+
+  <property>
+    <name>yarn.log-aggregation.retain-check-interval-seconds</name>
+    <value>3600</value>
+    <final>true</final>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.remote-app-log-dir</name>
+    <value>/data1/hadoop/aggregate</value>
+    <final>true</final>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.remote-app-log-dir-suffix</name>
+    <value>logs</value>
+    <final>true</final>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.sleep-delay-before-sigkill.ms</name>
+    <value>5000</value>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.vmem-check-enabled</name>
+    <value>false</value>
+    <final>true</final>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.container-manager.thread-count</name>
+    <value>40</value>
+    <final>true</final>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.delete.thread-count</name>
+    <value>8</value>
+    <final>true</final>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.localizer.client.thread-count</name>
+    <value>15</value>
+    <final>true</final>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.localizer.fetch.thread-count</name>
+    <value>8</value>
+    <final>true</final>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.client.thread-count</name>
+    <value>100</value>
+    <final>true</final>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.history-writer.multi-threaded-dispatcher.pool-size</name>
+    <value>20</value>
+    <final>true</final>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.resource-tracker.client.thread-count</name>
+    <value>100</value>
+    <final>true</final>
+  </property>
+
+  <property>    
+    <name>yarn.resourcemanager.state-store.max-completed-applications</name>    
+    <value>600</value>
+    <final>true</final>
+  </property>
+  
+  <property>
+    <name>yarn.resourcemanager.nodes.exclude-path</name>
+    <value>/usr/local/common/hadoop/conf/exclude</value>
+    <final>true</final>
+  </property>
+
+  <!-- Fair scheduler -->
+  <property>
+    <name>yarn.resourcemanager.scheduler.class</name>
+    <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.fair.FairScheduler</value>
+  </property>
+  
+  <property>
+    <name>yarn.scheduler.fair.allocation.file</name>
+    <value>/usr/local/common/hadoop/conf/fair-scheduler.xml</value>
+  </property>
+  
+  <property>
+    <name>yarn.scheduler.fair.user-as-default-queue</name>
+    <value>false</value>
+  </property>
+  
+  <property>
+    <name>yarn.scheduler.fair.preemption</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>yarn.scheduler.fair.sizebasedweight</name>
+    <value>true</value>
+  </property>
+  
+  <!-- Default for fair scheduler
+  <property>
+    <name>yarn.scheduler.fair.max.assign</name>
+    <value>-1</value>
+  </property>
+  
+  <property>
+    <name>yarn.scheduler.fair.locality.threshold.node</name>
+    <value>-1.0</value>
+  </property>
+  
+  <property>
+    <name>yarn.scheduler.fair.allow-undeclared-pools</name>
+    <value>true</value>
+  </property>
+  -->
+  
+</configuration>

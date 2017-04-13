@@ -1,0 +1,6 @@
+<configuration>
+<property>
+    <name>security.job.submission.protocol.acl</name>
+        <value>*</value>
+</property>
+</configuration>

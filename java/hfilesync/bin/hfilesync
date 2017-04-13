@@ -1,0 +1,44 @@
+#!/bin/sh
+
+this="${BASH_SOURCE-$0}"
+while [ -h "$this" ]; do
+  ls=`ls -ld "$this"`
+  link=`expr "$ls" : '.*-> \(.*\)$'`
+  if expr "$link" : '.*/.*' > /dev/null; then
+    this="$link"
+  else
+    this=`dirname "$this"`/"$link" 
+  fi  
+done  
+    
+# convert relative path to absolute path
+bin=`dirname "$this"`
+script=`basename "$this"` 
+bin=`cd "$bin">/dev/null; pwd`
+this="$bin/$script"
+
+# 定义 hfilesync_home
+hfilesync_home=$(dirname "$bin")
+
+# 定义 HFILESYNC_CLASSPATH
+if [ -d "$hfilesync_home/target" ]; then
+  cached_cp_file="$hfilesync_home/target/cached_classpath.txt"
+  if [ ! -f "$cached_cp_file" ]; then
+    echo 'need to "mvn package" first' >&2
+    exit 1
+  fi
+  cp=$(cat "$cached_cp_file"):"$hfilesync_home/target/classes"
+  mapred_cp=$(cat "$cached_cp_file" | tr ':' ',')
+else
+  cp=$(find "$hfilesync_home/lib" | grep 'jar$' | sort | paste -s -d ':')
+  mapred_cp=$(find "$hfilesync_home/lib" | grep 'jar$' | sort | paste -s -d ',')
+fi
+export HFILESYNC_CLASSPATH="$cp"
+
+# 定义 HFILESYNC_JAVA_OPTS
+debug_opts=""
+if [ "$HFILESYNC_DEBUG" = "1" -o "$HFILESYNC_DEBUG" = "true" ]; then
+  debug_opts="-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005"
+fi
+main_class=com.weibo.inf.hfilesync.cli.HFileSyncTool
+java -cp $cp -Dorg.apache.jasper.compiler.disablejsr199=true $debug_opts $main_class -Dtmpjars=$mapred_cp "$@"

@@ -1,4 +1,0 @@
-#!/bin/bash
-for i in `cat iplist`; do
-scp -P 26387 -o ConnectTimeout=1 -o StrictHostKeyChecking=no $1 $i:/usr/local/common/hadoop/conf/
-done;
